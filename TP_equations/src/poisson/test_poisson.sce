@@ -16,18 +16,16 @@ endfunction
 // F   = f(x,y)         -- fonction testée
 // Ref = Psi_alpha(x,y) -- solution analytique
 // Psi = Psi_star(x,y)  -- solution du solveur
-function plot_error(F, Ref, Psi)  
+function plot_error(F, Ref, Psi, Y, X)  // Je sais pas mettre de légendes
     fig = gcf()
-    x = linspace(-1, 1, 10)
-    y= linspace(-1, 1, 10)
     subplot(221)
-    plot3d(x, y, F(x, y))
+    plot3d(Y, X, F)
     subplot(222)
-    plot3d(x, y, Ref(x, y))
+    plot3d(Y, X, Ref)
     subplot(223)
-    plot3d(x, y, Psi(x, y))
+    plot3d(Y, X, Psi)
     subplot(224)
-    plot3d(x, y, abs(Psi(x, y) - Ref(x, y)))
+    plot3d(Y, X, abs(Psi - Ref))
     xs2png(fig, "poisson_error.png")
 endfunction
 
@@ -62,7 +60,7 @@ function test_poisson(Lx, Ly, Nx, Ny)
     
     file = pwd()+"/poisson_error.png"
     printf("\n\n  Plotting everything to %s%s%s.", char(39), file, char(39))
-    plot_error(F, Ref, Psi)
+    plot_error(F, Ref, Psi, Y, X)
     
     printf("\n\n")
     mErr = max(Err)
