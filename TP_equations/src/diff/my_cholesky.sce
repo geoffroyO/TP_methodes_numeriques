@@ -32,9 +32,14 @@ function [y]=up_sweep_cholesky(A,x)
   if (m~=n) then
     print(%io(2), "error, not a square matrix");
   else
-//-------------------------
-//TODO
-//------------------------
+    y = zeros(n,1)
+    for k=0:(n-1)
+      S = 0
+      for i=1:k
+        S = S + A(n-k, n-k + i)*y(n-k+i)
+      end
+      y(n-k) = (x(n-k) - S)/A(n-k, n-k)
+    end
   end
 endfunction
 
@@ -43,14 +48,19 @@ function [y]=down_sweep_cholesky(A,x)
   if (m~=n) then
     print(%io(2), "error, not a square matrix");
   else
-//-----------------------
-//TODO
-//----------------------
- end
+    y=zeros(n,1)
+    for k=1:n
+      S = 0
+      for i=1:(k-1)
+        S = S + A(k,i) * y(i)
+      end
+      y(k) = (x(k) - S)/A(k,k)
+    end
+  end
 endfunction
 
 function [U]=my_cholesky(N,S)
-//---------------
-//TODO
-//--------------
+  T = cholesky_fact(N)
+  Y = down_sweep_cholesky(T,S)
+  U = up_sweep_cholesky(T',Y)
 endfunction
