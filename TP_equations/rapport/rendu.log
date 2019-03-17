@@ -1,0 +1,468 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.26)  17 MAR 2019 20:07
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**rendu.tex
+(./rendu.tex
+LaTeX2e <2018-04-01> patch level 5
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/04/06 v1.3b Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/11/13 3.27 The Babel package
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/11/13 3.27 Babel switching mechanism
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel-french/french.ldf
+Language: french 2018/09/14 v3.5c French support from the babel system
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/11/13 3.27 Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count89
+)
+\l@acadian = a dialect from \language\l@french 
+\FB@nonchar=\count90
+Package babel Info: Making : an active character on input line 414.
+Package babel Info: Making ; an active character on input line 415.
+Package babel Info: Making ! an active character on input line 416.
+Package babel Info: Making ? an active character on input line 417.
+\FBguill@level=\count91
+\FBold@everypar=\toks16
+\FB@Mht=\dimen104
+\mc@charclass=\count92
+\mc@charfam=\count93
+\mc@charslot=\count94
+\std@mcc=\count95
+\dec@mcc=\count96
+\c@FBcaption@count=\count97
+\listindentFB=\dimen105
+\descindentFB=\dimen106
+\labelindentFB=\dimen107
+\labelwidthFB=\dimen108
+\leftmarginFB=\dimen109
+\parindentFFN=\dimen110
+\FBfnindent=\dimen111
+))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/carlisle/scalefnt.sty)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip43
+\f@nch@O@elh=\skip44
+\f@nch@O@erh=\skip45
+\f@nch@O@olh=\skip46
+\f@nch@O@orh=\skip47
+\f@nch@O@elf=\skip48
+\f@nch@O@erf=\skip49
+\f@nch@O@olf=\skip50
+\f@nch@O@orf=\skip51
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/vmargin/vmargin.sty
+Package: vmargin 2004/07/15 V2.5 set document margins (VK)
+
+Package: vmargin 2004/07/15 V2.5 set document margins (VK)
+\PaperWidth=\dimen112
+\PaperHeight=\dimen113
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip52
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen114
+))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen115
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count98
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count99
+\leftroot@=\count100
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count101
+\DOTSCASE@=\count102
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen116
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count103
+\c@MaxMatrixCols=\count104
+\dotsspace@=\muskip10
+\c@parentequation=\count105
+\dspbrk@lvl=\count106
+\tag@help=\toks19
+\row@=\count107
+\column@=\count108
+\maxfields@=\count109
+\andhelp@=\toks20
+\eqnshift@=\dimen117
+\alignsep@=\dimen118
+\tagshift@=\dimen119
+\tagwidth@=\dimen120
+\totwidth@=\dimen121
+\lineht@=\dimen122
+\@envbody=\toks21
+\multlinegap=\skip53
+\multlinetaggap=\skip54
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen123
+\Gin@req@width=\dimen124
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen125
+\captionmargin@=\dimen126
+\captionwidth=\dimen127
+\caption@tempdima=\dimen128
+\caption@indent=\dimen129
+\caption@parindent=\dimen130
+\caption@hangindent=\dimen131
+)
+\c@caption@flags=\count110
+\c@ContinuedFloat=\count111
+)
+(./rendu.aux
+
+LaTeX Warning: Label `graphe 4:' multiply defined.
+
+
+LaTeX Warning: Label `graphe 4:' multiply defined.
+
+)
+\openout1 = `rendu.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Info: Redefining \degres on input line 34.
+LaTeX Info: Redefining \dots on input line 34.
+LaTeX Info: Redefining \up on input line 34.
+ (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count112
+\scratchdimen=\dimen132
+\scratchbox=\box28
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count115
+\MPscratchDim=\dimen133
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks24
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
+
+ []
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 43.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 43.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Overfull \hbox (7.23096pt too wide) detected at line 72
+ []$[] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 c\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x
+\OT1/cmr/m/n/10 )[] + \OML/cmm/m/it/10 c\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1
+/cmr/m/n/10 )[][])^^H(\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 
+dx; t\OT1/cmr/m/n/10 ) + (1 \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 2\OML/cmm/m/it
+/10 c\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )[][])^^H(\OML/cmm/m/it
+/10 x; t\OT1/cmr/m/n/10 ) + (\OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 c\OT1/cmr/m/n
+/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )[] + \OML/cmm/m/it/10 c\OT1/cmr/m/n/10 
+(\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )[][])^^H(\OML/cmm/m/it/10 x \OT1/cmr/m/n/10
+ + \OML/cmm/m/it/10 dx; t\OT1/cmr/m/n/10 )  $ 
+ []
+
+
+LaTeX Warning: Command \` invalid in math mode on input line 108.
+
+Missing character: There is no è in font cmr7!
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--109
+
+ []
+
+[1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 128--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--146
+
+ []
+
+<I)4)k=10-4.png, id=20, 1128.215pt x 634.37pt>
+File: I)4)k=10-4.png Graphic file (type png)
+<use I)4)k=10-4.png>
+Package pdftex.def Info: I)4)k=10-4.png  used on input line 148.
+(pdftex.def)             Requested size: 394.88116pt x 222.03282pt.
+[2]
+<I)4)k=10-3.png, id=28, 1125.20375pt x 625.33624pt>
+File: I)4)k=10-3.png Graphic file (type png)
+<use I)4)k=10-3.png>
+Package pdftex.def Info: I)4)k=10-3.png  used on input line 154.
+(pdftex.def)             Requested size: 393.82721pt x 218.87096pt.
+<I)4)k=10-2.png, id=29, 1124.2pt x 626.34pt>
+File: I)4)k=10-2.png Graphic file (type png)
+<use I)4)k=10-2.png>
+Package pdftex.def Info: I)4)k=10-2.png  used on input line 160.
+(pdftex.def)             Requested size: 393.47589pt x 219.22227pt.
+ [3 <./I)4)k=10-4.png> <./I)4)k=10-3.png>]
+<test2D.png, id=36, 1413.28pt x 724.7075pt>
+File: test2D.png Graphic file (type png)
+<use test2D.png>
+Package pdftex.def Info: test2D.png  used on input line 167.
+(pdftex.def)             Requested size: 423.98727pt x 217.41393pt.
+ [4 <./I)4)k=10-2.png> <./test2D.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 181--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--188
+
+ []
+
+
+Overfull \hbox (15.48972pt too wide) in paragraph at lines 188--192
+\T1/cmr/m/n/10 D'où $\OML/cmm/m/it/10  \OT1/cmr/m/n/10 = []$ \T1/cmr/m/n/10 pu
+is $\OT1/cmr/m/n/10 	[](\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = []\OML/cmm/m/i
+t/10 sin\OT1/cmr/m/n/10 (2\OML/cmm/m/it/10 ^^Yx\OT1/cmr/m/n/10 )\OML/cmm/m/it/1
+0 sin\OT1/cmr/m/n/10 (2\OML/cmm/m/it/10 ^^Yy\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 , 
+on peut fi-na-le-ment co-der la fonc-tion $[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--192
+
+ []
+
+<poisson_error.png, id=45, 1224.575pt x 923.45pt>
+File: poisson_error.png Graphic file (type png)
+<use poisson_error.png>
+Package pdftex.def Info: poisson_error.png  used on input line 194.
+(pdftex.def)             Requested size: 428.60768pt x 323.21234pt.
+
+Overfull \hbox (1.17615pt too wide) in paragraph at lines 194--195
+ [] 
+ []
+
+[5 <./poisson_error.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 205--208
+
+ []
+
+<poisson_curlx.png, id=51, 1393.205pt x 743.77875pt>
+File: poisson_curlx.png Graphic file (type png)
+<use poisson_curlx.png>
+Package pdftex.def Info: poisson_curlx.png  used on input line 216.
+(pdftex.def)             Requested size: 417.96472pt x 223.13535pt.
+<poisson_curly.png, id=52, 1418.29875pt x 776.9025pt>
+File: poisson_curly.png Graphic file (type png)
+<use poisson_curly.png>
+Package pdftex.def Info: poisson_curly.png  used on input line 222.
+(pdftex.def)             Requested size: 425.4929pt x 233.07254pt.
+[6 <./poisson_curlx.png>] [7 <./poisson_curly.png>] (./rendu.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 5175 strings out of 492639
+ 74312 string characters out of 6129301
+ 161848 words of memory out of 5000000
+ 8979 multiletter control sequences out of 15000+600000
+ 16891 words of font info for 41 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,12n,43p,675b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
+/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></u
+sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr
+/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/l
+ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/loc
+al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local
+/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/t
+exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texl
+ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive
+/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
+2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/20
+18/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2
+018/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/201
+8/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2018/
+texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2018/te
+xmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2018/texm
+f-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2018/texmf-
+dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2018/texmf-di
+st/fonts/type1/public/cm-super/sfti1728.pfb>
+Output written on rendu.pdf (7 pages, 1034269 bytes).
+PDF statistics:
+ 132 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+

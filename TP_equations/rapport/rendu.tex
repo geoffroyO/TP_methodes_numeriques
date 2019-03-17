@@ -1,0 +1,260 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\pagestyle{fancy}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{caption}
+
+\renewcommand{\headrulewidth}{1pt}
+\fancyhead[L]{Méthodes Numériques}
+\fancyhead[R]{Ensimag 1A}
+
+\renewcommand{\footrulewidth}{1pt}
+\fancyfoot[C]{\textbf{page \thepage}} 
+\fancyfoot[L]{2019}
+
+%%%% debut macro %%%%
+\newenvironment{changemargin}[2]{\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{0pt}%
+\setlength{\rightmargin}{0pt}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{0pt plus 1pt}%
+\addtolength{\leftmargin}{#1}%
+\addtolength{\rightmargin}{#2}%
+}\item }{\end{list}}
+%%%% fin macro %%%%
+
+\begin{document}
+\begin{center}
+     \begin{LARGE}
+         \textbf{Rendu TP Méthodes Numériques~:}\\
+         \textit{Simulation d'écoulement fluide}\\
+         \textit{Jacopo Iollo, Geoffroy Oudoumanessah}
+     \end{LARGE}
+ \end{center}
+\section{Résolution de l'équation de transport diffusion \newline }
+\textbf{Question 1:} On cherche deux matrices $M$ et $N$ telles que $\forall k \in {0,...,N_t-1}$ on ait le système:
+
+$$N 
+\begin{pmatrix} 
+\Phi(0, (k+1)dt) \\
+\vdots \\
+\Phi(ndx, (k+1)dt) \\
+\vdots \\
+\Phi((N_x-1)dx, (k+1)dt)
+\end{pmatrix} 
+= M
+\begin{pmatrix}
+\Phi(0, kdt) \\
+\vdots \\
+\Phi(ndx, kdt) \\
+\vdots \\
+\Phi((N_x-1)dw, kdt)
+\end{pmatrix}
+$$
+Pour répondre à cette question on utilise la formule de l'équation différentielle discrétisée et on sépare les termes en $\Phi(., t+dt)$ et $\Phi(., t)$, on obtient alors:
+
+\begin{multline*}
+\Phi(x, t+dt) - \kappa \frac{dt}{dx^2}(\Phi(x+dx, t+dt) - 2\Phi(x, t+dt) + \Phi(x-dx, t+dt)\\ =\Phi(x, t) -c(x)\frac{dt}{2dx}(\Phi(x+dx, t) - \Phi(x-dx,t)) + c(x)^2\frac{dt^2}{2dx^2}(\Phi(x+dx,t)-2\Phi(x,t)+\Phi(x-dx,t))
+\end{multline*}
+
+Puis finalement, en arrangeant les termes on trouve la forme suivante:
+\begin{multline*}
+-\kappa \frac{dt}{dx^2}\Phi(x-dx,t+dt)+(1+2\kappa\frac{dt}{dt^2})\Phi(x,t+dt) -\kappa\frac{dt}{dx^2}\Phi(x+dx,t+dt)\\
+=(c(x)\frac{dt}{2dx}+c(x)^2\frac{dt^2}{2dx^2})\Phi(x-dx,t)+(1-2c(x)^2\frac{dt^2}{2dx^2})\Phi(x,t)+(-c(x)\frac{dt}{2dx}+c(x)^2\frac{dt^2}{2dx^2})\Phi(x+dx,t)
+\end{multline*}
+
+Enfin, en utilisant la périodicité spatiale de $\Phi$ on en déduit aisément les matrices:
+$$
+N=\begin{pmatrix}
+1+2\kappa\frac{dt}{dx^2} & -\kappa\frac{dt}{dx^2} & 0 & \ldots  & -\kappa\frac{dt}{dx^2} \\
+-\kappa\frac{dt}{dx^2} & 1+2\kappa\frac{dt}{dx^2}  & -\kappa\frac{dt}{dx^2} & \ldots & \vdots \\
+0 & -\kappa\frac{dt}{dx^2} & \ddots & \ddots & 0 \\
+\vdots & \ddots & \ddots & \ddots & -\kappa\frac{dt}{dx^2} \\
+-\kappa\frac{dt}{dx^2} & \ldots & 0 & -\kappa\frac{dt}{dx^2} & 1+2\kappa\frac{dt}{dx^2}  
+\end{pmatrix}
+$$
+
+
+$$
+M=\begin{pmatrix}
+a_1 & b_1 & 0 & \ldots  & c_1\\
+c_2 & a_2  & b_2 & \ldots & \vdots \\
+0 & c_3 & \ddots & \ddots & 0 \\
+\vdots & \ddots & \ddots & \ddots & b_{N_{x}-1} \\
+b_{N_x}& \ldots & 0 & c_{N_x} & a_{N_x}  
+\end{pmatrix}
+$$
+avec, $\forall k \in {0,...N_x-1}$
+\begin{multline*}
+a_k = 1-2c(kdx)^2\frac{dt^2}{2dx^2} \\
+b_k = c(kdx)\frac{dt}{2dx}(c(kdx)\frac{dt}{dx}-1) \\
+c_k = c(kdx)\frac{dt}{2dx}(c(kdx)\frac{dt}{dx}+1) \\
+\end{multline*}
+\\ \\
+\textbf{Question 2:} On a bien N qui est symétrique, pour vérifier qu'elle est définie positive, on va poser la matrice de Jordan: $J=\begin{pmatrix}
+0 & 1 & 0 & \ldots & 0 \\
+0 & 0 & 1 & \ldots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & \ldots & \ldots & \ldots & 1 \\
+1 & 0 & 0 & \ldots & 0 
+\end{pmatrix}$. On montre que les valeurs propres de la matrice de Jordan sont les racines $N_t^{ième}$ de l'unité. On trouve par ailleurs que $N$ est la matrice issue de l'évaluation d'un certain polynôme par $J$. En posant ce polynôme $Q$, on trouve alors:
+$$
+Q(X)= 1+2\kappa\frac{dt}{dx^2} -\kappa\frac{dt}{dx^2}(X+X^{N_{t}-1})
+$$
+On a aussi $J$ diagonalisable $\exists P \in GL_n(\mathbb{C})$ telle que $J=P^{-1}DP$ avec $D=Diag((\omega_k)_{0\leq k \leq N_t} )$, ainsi on obtient alors $Q(J)=P^{-1}Q(D)P$ par bloc on obtient que les valeurs propres de la matrice $N$ sont les évaluations de $Q$ en $(\omega_{k})_{0\leq k \leq N_t}$. Montrons que $\forall k \in {0,...,N_{t-1}}$ on a $Q(\omega_k) > 0$. En effet on a bien $\omega_k + \omega_k^{N_t-1}=e^{\frac{2ik\pi}{N_t}}+ e^{\frac{2ik\pi(N_t-1)}{N_t}}= 2cos(\frac{2k\pi}{N_t})\in \mathbb{R}$ de plus $1+2\kappa\frac{dt}{dx^2} -\kappa\frac{dt}{dx^2}(2cos(\frac{2k\pi}{N_t})) > 0$, $N$ est alors bien symétrique définie positive. \\
+Cela justifie donc bien l'utilisation d'une méthode de type Cholesky car on peut écrire, avec $T \in T_n(\mathbb{R})$:
+$$T^tT\begin{pmatrix} \Phi(0, (k+1)dt) \\
+\vdots \\
+\Phi(ndx, (k+1)dt) \\
+\vdots \\
+\Phi((N_x-1)dx, (k+1)dt)
+\end{pmatrix} 
+=M
+\begin{pmatrix}
+\Phi(0, kdt) \\
+\vdots \\
+\Phi(ndx, kdt) \\
+\vdots \\
+\Phi((N_x-1)dw, kdt)
+\end{pmatrix}
+$$
+On résout alors: $T^tY=M
+\begin{pmatrix}
+\Phi(0, kdt) \\
+\vdots \\
+\Phi(ndx, kdt) \\
+\vdots \\
+\Phi((N_x-1)dw, kdt)
+\end{pmatrix}$ puis $T \begin{pmatrix}\Phi(0, (k+1)dt) \\
+\vdots \\
+\Phi(ndx, (k+1)dt) \\
+\vdots \\
+\Phi((N_x-1)dx, (k+1)dt)
+\end{pmatrix} = Y$
+\\ \\
+\textbf{Question 3:} On code les fonctions $\it{up\_sweep\_cholesky}$ et $\it{down\_sweep\_cholesky}$ avec l'algorithme de Cholesky vu en cours. Enfin on utilise l'algorithme de résolution vu précédemment pour coder la fonction $\it{my\_cholesky}$.
+\\ \\
+\textbf{Question 4:} On initialise d'abord les matrices $M$, $N$, $phi_0$ et la fonction de convection. Enfin on applique $N_t$ fois la fonction $\it{my\_cholesky}$ pour trouver $\Phi$ au temps final on obtient, pour els différentes valeur de $\kappa$ testées:
+
+\begin{center}
+\includegraphics[scale=0.35]{I)4)k=10-4.png}
+\captionof{figure}{$\kappa = 10^{-4}$}
+\label{graphe 1:}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.35]{I)4)k=10-3.png}
+\captionof{figure}{$\kappa = 10^{-3}$}
+\label{graphe 2:}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.35]{I)4)k=10-2.png}
+\captionof{figure}{$\kappa = 10^{-2}$}
+\label{graphe 3:}
+\end{center}
+
+\textbf{Question 5:} On code assez simplement la fonction $\it{solveur\_1D}$ avec la fonction $\it{umfpack}$ qui résous un système de la forme $Ax=b$. Enfin on écrit une fonction  $\it{solveur\_2D}$ qui utilise la méthode de splitting présentée  et on plot les résultats. On obtient alors:
+\begin{center}
+\includegraphics[scale=0.3]{test2D.png}
+\captionof{figure}{$Solveur 2D$}
+\label{graphe 4}
+\end{center}
+\section{Résolution du problème de Poisson}
+\textbf{Question 6:}
+On a, $\forall n,m>1$ et pour $\mathbf{k_x}=\frac{2i\pi q}{L_x}$ et $\mathbf{k_y}=\frac{2i\pi p}{L_y}$:
+$S_{nm}(f)=\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{f}_{pq}e^{\mathbf{k_y}y}e^{\mathbf{k_x}x} $ et $S_{nm}(\Psi)=\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{\Psi}_{pq}e^{\mathbf{k_y}y}e^{\mathbf{k_x}x}$. De plus, on peut écrire:
+
+$$ \frac{\partial^2 S_{nm}(\Psi)}{\partial x^2}(x,y) + \frac{\partial^2 S_{nm}(\Psi)}{\partial y^2}= S_{nm}(f)(x,y)$$
+D'où, en passant faisant la somme des dérivées:
+$$\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{\Psi}_{pq}\mathbf{k_x}^2e^{\mathbf{k_y}y}e^{\mathbf{k_x}x}  +\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{\Psi}_{pq}\mathbf{k_y}^2e^{\mathbf{k_y}y}e^{\mathbf{k_x}x} =\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{f}_{pq}e^{\mathbf{k_y}y}e^{\mathbf{k_x}x} $$
+
+Puis finalement, en identifiants les coefficients, on trouve alors:
+$$\hat{\Psi}_{pq}=\frac{\hat{f}_{pq}}{\mathbf{k_x}^2+\mathbf{k_y}^2}$$
+\\ \\
+\textbf{Question 7:} Pour cette question, on écrit la fonction $\it{fftfreq}$ avec la formule donnée.
+\\ \\
+\textbf{Question 8:} Il suffit de coder la fonction $\it{poisson\_2d}$ en suivant l'algorithme donnée et en faisant attention au cas où $\mathbf{k_x}$ et $\mathbf{k_y}$ sont simultanément nuls.
+\\ \\
+\textbf{Question 9:} Soit $\alpha \in \mathbb{R}$ et on pose $\Psi_{\alpha}(x,y)=\alpha sin(2\pi x) sin(2 \pi y)$, on a:
+$$\Delta \Psi_{\alpha}(x,y)= -8\pi^2\alpha sin(2\pi x) sin(2 \pi y)=sin(2\pi x) sin(2 \pi y)$$
+D'où $\alpha = \frac{-1}{8 \pi^2}$ puis $\Psi_{\alpha}(x,y)=\frac{-1}{8 \pi^2} sin(2\pi x) sin(2 \pi y)$, on peut finalement coder la fonction $\textit{solution\_field}$
+\\ \\
+\textbf{Question 10:} On obtient un test réussi avec une erreur de : $8.6736173799e^{-18}$, on a donc une précision de l'ordre de $10^{-18}$ sur nos calculs qui sont alors très précis.
+
+\begin{center}
+\includegraphics[scale=0.35]{poisson_error.png}
+\captionof{figure}{Résultats du Test}
+\label{graphe 4:}
+\end{center}
+
+\textbf{Question 11:} On trouves les coefficients de Fourier de $\hat{\mathbf{u}}_x$ et $\hat{\mathbf{u}}_y$ avec le même raisonnement que lors de la question 8:
+
+$$\Delta S_{nm}(\mathbf{u}_x)(x,y)=-\frac{\partial S_{nm}(\omega)}{\partial y}(x,y)$$
+$$\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{\mathbf{u}_x}_{pq}\mathbf{k_x}^2e^{\mathbf{k_y}y}e^{\mathbf{k_x}x}  +\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{\mathbf{u}_x}_{pq}\mathbf{k_y}^2e^{\mathbf{k_y}y}e^{\mathbf{k_x}x} =-\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{\omega}_{pq}\mathbf{k_y}e^{\mathbf{k_y}y}e^{\mathbf{k_x}x} $$
+
+$$\Delta S_{nm}(\mathbf{u}_y)(x,y)=\frac{\partial S_{nm}(\omega)}{\partial x}(x,y)$$
+$$\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{\mathbf{u}_y}_{pq}\mathbf{k_x}^2e^{\mathbf{k_y}y}e^{\mathbf{k_x}x}  +\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{\mathbf{u}_y}_{pq}\mathbf{k_y}^2e^{\mathbf{k_y}y}e^{\mathbf{k_x}x} =\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{\omega}_{pq}\mathbf{k_x}e^{\mathbf{k_y}y}e^{\mathbf{k_x}x} $$
+\\ \\
+Finalement on a les relations suivantes:
+
+$$\hat{\mathbf{u}_x}_{pq}=\frac{-\hat{\omega}_{pq}}{\mathbf{k_x}^2+\mathbf{k_y}^2} $$
+$$\hat{\mathbf{u}_x}_{pq}=\frac{\hat{\omega}_{pq}}{\mathbf{k_x}^2+\mathbf{k_y}^2} $$
+
+On code ainsi, dans la fonction $\textit{poisson\_curl\_2d}$ en calculant les $\hat{\mathbf{u}_x}_{pq}$ et $\hat{\mathbf{u}_x}_{pq}$ puis en passant à la transformée inverse de Fourier on trouve $\mathbf{u}_x$ et $\mathbf{u}_y$. Pour le test donné, on obtient les résultats suivants:
+
+
+\begin{center}
+\includegraphics[scale=0.3]{poisson_curlx.png}
+\captionof{figure}{Résultats du Test pour $\mathbf{u}_x$}
+\label{graphe 4:}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.3]{poisson_curly.png}
+\captionof{figure}{Résultats du Test pour $\mathbf{u}_y$}
+\label{graphe 4:}
+\end{center}
+
+On constate que les erreurs commises sont de l'ordre que celles commises précédemment lors de la question 10, ce qui semble normal puisque l'on utilise la même méthode pour la résolution.
+
+\section{Simulation numérique}
+
+\textbf{Question 12:} On a $\omega^0(x,y) = \frac{\partial \mathbf{u}_y^0}{\partial x} - \frac{\partial \mathbf{u}_x^0}{\partial y}$. De plus, $\frac{\partial \mathbf{u}_y^0}{\partial x}=2 \pi \delta cos(2\pi x)$ et   
+\begin{equation*} 
+\frac{\partial\mathbf{u}_x^0}{\partial y} =
+     \begin{cases}
+        \frac{\rho}{ch^2(\rho(y-0.25))} & \text{si $\rho \leq 0.5$} \\
+        \frac{-\rho}{ch^2(\rho(0.75-y))}  & \text{si $\rho > 0.5$}
+     \end{cases}
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

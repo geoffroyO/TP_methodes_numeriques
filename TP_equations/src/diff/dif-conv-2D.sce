@@ -13,14 +13,18 @@ cy=zeros(Ny,Nx); //composante y de la vitesse de convection
 phi=zeros(Ny,Nx);   //fonction à calculer
 phi_i=zeros(Ny,Nx); //condtion initiale
 
-//------------------------------------------
-//TODO remplir les tableaux cx cy phi phi_i
-//------------------------------------------
+for i=1:Nx
+    for j=1:Ny
+        phi(i,j)=phi_0((j-1)*dx,(i-1)*dy); // Initialisation de phi
+        cy(i,j)=conv((j-1)*dx,(i-1)*dy)(1); // Initialisation de cx
+        cx(i,j)=conv((j-1)*dx,(i-1)*dy)(2); // Initialisation de cy
+    end
+end
 
-dt=min(calcul_dt(cx,dx),calcul_dt(cy,dy));
-Nt=floor(Tf/dt);
+dt=min(calcul_dt(cx,dx),calcul_dt(cy,dy))
+Nt=floor(Tf/dt)
+phi_i=phi
+
 for k=1:Nt
-    //-----------------
-    // TODO
-    //----------------
+    phi = solveur_2D(phi, cx, cy, Nx, Ny, nu, dt, dx, dy); // On itère le solveur 2D
 end

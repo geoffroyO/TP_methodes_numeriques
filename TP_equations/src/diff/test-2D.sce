@@ -24,6 +24,17 @@ endfunction
 
 exec("dif-conv-2D.sce")
 
-//---------------------
-//TODO affichage graphique
-//--------------------
+// Plot des résultats
+Pim = min(phi_i); PiM = max(phi_i)
+Pm = min(phi); PM = max(phi)
+clf();
+xset("colormap", jetcolormap(64))
+subplot(121)
+colorbar(Pim, PiM)
+plot3d1(maillage_x, maillage_y, phi_i)
+title('$ \Phi_i $','fontsize',5)
+subplot(122)
+colorbar(Pm, PM)
+plot3d1(maillage_x, maillage_y, phi)
+title('$ \Phi $','fontsize',5)
+

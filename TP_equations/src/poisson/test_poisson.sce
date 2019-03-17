@@ -18,14 +18,28 @@ endfunction
 // Psi = Psi_star(x,y)  -- solution du solveur
 function plot_error(F, Ref, Psi, Y, X)  // Je sais pas mettre de légendes
     fig = gcf()
+    Fm = min(F); FM = max(F)
+    Rm = min(Ref); RM = max(Ref)
+    Pm = min(Psi); PM = max(Psi)
+    Em = min(abs(Psi - Ref)); EM = max(abs(Psi - Ref))
+    clf();
+    xset("colormap", jetcolormap(64))
     subplot(221)
-    plot3d(Y, X, F)
+    colorbar(Fm, FM)
+    plot3d1(Y, X, F)
+    title('$sin(2 \pi x)sin(2 \pi y)$','fontsize',5)
     subplot(222)
-    plot3d(Y, X, Ref)
+    colorbar(Rm, RM)
+    plot3d1(Y, X, Ref)
+    title('$\Psi _{\frac{-1}{8 \pi ^2}}(x,y)$','fontsize',5)
     subplot(223)
-    plot3d(Y, X, Psi)
+    colorbar(Pm, PM)
+    plot3d1(Y, X, Psi)
+    title('$\Psi_{*}(x,y)$','fontsize',5)
     subplot(224)
-    plot3d(Y, X, abs(Psi - Ref))
+    colorbar(Em, EM)
+    plot3d1(Y, X, abs(Psi - Ref))
+    title('$\| \Psi _{\frac{-1}{8 \pi ^2}} - \Psi_{*} \|(x,y)$','fontsize',5)
     xs2png(fig, "poisson_error.png")
 endfunction
 
