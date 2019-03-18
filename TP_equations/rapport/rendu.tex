@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
@@ -59,18 +59,19 @@ $$N
 \Phi((N_x-1)dw, kdt)
 \end{pmatrix}
 $$
+\\
 Pour répondre à cette question on utilise la formule de l'équation différentielle discrétisée et on sépare les termes en $\Phi(., t+dt)$ et $\Phi(., t)$, on obtient alors:
 
 \begin{multline*}
 \Phi(x, t+dt) - \kappa \frac{dt}{dx^2}(\Phi(x+dx, t+dt) - 2\Phi(x, t+dt) + \Phi(x-dx, t+dt)\\ =\Phi(x, t) -c(x)\frac{dt}{2dx}(\Phi(x+dx, t) - \Phi(x-dx,t)) + c(x)^2\frac{dt^2}{2dx^2}(\Phi(x+dx,t)-2\Phi(x,t)+\Phi(x-dx,t))
 \end{multline*}
-
+\\
 Puis finalement, en arrangeant les termes on trouve la forme suivante:
 \begin{multline*}
 -\kappa \frac{dt}{dx^2}\Phi(x-dx,t+dt)+(1+2\kappa\frac{dt}{dt^2})\Phi(x,t+dt) -\kappa\frac{dt}{dx^2}\Phi(x+dx,t+dt)\\
 =(c(x)\frac{dt}{2dx}+c(x)^2\frac{dt^2}{2dx^2})\Phi(x-dx,t)+(1-2c(x)^2\frac{dt^2}{2dx^2})\Phi(x,t)+(-c(x)\frac{dt}{2dx}+c(x)^2\frac{dt^2}{2dx^2})\Phi(x+dx,t)
 \end{multline*}
-
+\\
 Enfin, en utilisant la périodicité spatiale de $\Phi$ on en déduit aisément les matrices:
 $$
 N=\begin{pmatrix}
@@ -92,13 +93,15 @@ c_2 & a_2  & b_2 & \ldots & \vdots \\
 b_{N_x}& \ldots & 0 & c_{N_x} & a_{N_x}  
 \end{pmatrix}
 $$
-avec, $\forall k \in {0,...N_x-1}$
-\begin{multline*}
+avec $\forall k \in {0,...N_x-1}$
+$$
+\left\{\begin{matrix}
 a_k = 1-2c(kdx)^2\frac{dt^2}{2dx^2} \\
 b_k = c(kdx)\frac{dt}{2dx}(c(kdx)\frac{dt}{dx}-1) \\
-c_k = c(kdx)\frac{dt}{2dx}(c(kdx)\frac{dt}{dx}+1) \\
-\end{multline*}
-\\ \\
+c_k = c(kdx)\frac{dt}{2dx}(c(kdx)\frac{dt}{dx}+1) 
+\end{matrix}\right 
+$$
+\\
 \textbf{Question 2:} On a bien N qui est symétrique, pour vérifier qu'elle est définie positive, on va poser la matrice de Jordan: $J=\begin{pmatrix}
 0 & 1 & 0 & \ldots & 0 \\
 0 & 0 & 1 & \ldots & 0 \\
@@ -126,22 +129,27 @@ $$T^tT\begin{pmatrix} \Phi(0, (k+1)dt) \\
 \Phi((N_x-1)dw, kdt)
 \end{pmatrix}
 $$
-On résout alors: $T^tY=M
+On résout alors: 
+$
+T^tY=M
 \begin{pmatrix}
 \Phi(0, kdt) \\
 \vdots \\
 \Phi(ndx, kdt) \\
 \vdots \\
 \Phi((N_x-1)dw, kdt)
-\end{pmatrix}$ puis $T \begin{pmatrix}\Phi(0, (k+1)dt) \\
+\end{pmatrix}$ et $T \begin{pmatrix}\Phi(0, (k+1)dt) \\
 \vdots \\
 \Phi(ndx, (k+1)dt) \\
 \vdots \\
 \Phi((N_x-1)dx, (k+1)dt)
-\end{pmatrix} = Y$
-\\ \\
+\end{pmatrix} = Y
+$
+\vspace{1cm}
+\\
 \textbf{Question 3:} On code les fonctions $\it{up\_sweep\_cholesky}$ et $\it{down\_sweep\_cholesky}$ avec l'algorithme de Cholesky vu en cours. Enfin on utilise l'algorithme de résolution vu précédemment pour coder la fonction $\it{my\_cholesky}$.
-\\ \\
+\vspace{1cm}
+\\
 \textbf{Question 4:} On initialise d'abord les matrices $M$, $N$, $phi_0$ et la fonction de convection. Enfin on applique $N_t$ fois la fonction $\it{my\_cholesky}$ pour trouver $\Phi$ au temps final on obtient, pour els différentes valeur de $\kappa$ testées:
 
 \begin{center}
@@ -149,6 +157,8 @@ On résout alors: $T^tY=M
 \captionof{figure}{$\kappa = 10^{-4}$}
 \label{graphe 1:}
 \end{center}
+
+\vspace{3cm}
 
 \begin{center}
 \includegraphics[scale=0.35]{I)4)k=10-3.png}
@@ -164,10 +174,12 @@ On résout alors: $T^tY=M
 
 \textbf{Question 5:} On code assez simplement la fonction $\it{solveur\_1D}$ avec la fonction $\it{umfpack}$ qui résous un système de la forme $Ax=b$. Enfin on écrit une fonction  $\it{solveur\_2D}$ qui utilise la méthode de splitting présentée  et on plot les résultats. On obtient alors:
 \begin{center}
+\vspace{2cm}
 \includegraphics[scale=0.3]{test2D.png}
 \captionof{figure}{$Solveur 2D$}
 \label{graphe 4}
 \end{center}
+\newpage
 \section{Résolution du problème de Poisson}
 \textbf{Question 6:}
 On a, $\forall n,m>1$ et pour $\mathbf{k_x}=\frac{2i\pi q}{L_x}$ et $\mathbf{k_y}=\frac{2i\pi p}{L_y}$:
@@ -179,15 +191,18 @@ $$\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{\Ps
 
 Puis finalement, en identifiants les coefficients, on trouve alors:
 $$\hat{\Psi}_{pq}=\frac{\hat{f}_{pq}}{\mathbf{k_x}^2+\mathbf{k_y}^2}$$
-\\ \\
+\\ 
 \textbf{Question 7:} Pour cette question, on écrit la fonction $\it{fftfreq}$ avec la formule donnée.
-\\ \\
+\vspace{2cm}
+\\
 \textbf{Question 8:} Il suffit de coder la fonction $\it{poisson\_2d}$ en suivant l'algorithme donnée et en faisant attention au cas où $\mathbf{k_x}$ et $\mathbf{k_y}$ sont simultanément nuls.
-\\ \\
+\vspace{2cm}
+\\
 \textbf{Question 9:} Soit $\alpha \in \mathbb{R}$ et on pose $\Psi_{\alpha}(x,y)=\alpha sin(2\pi x) sin(2 \pi y)$, on a:
 $$\Delta \Psi_{\alpha}(x,y)= -8\pi^2\alpha sin(2\pi x) sin(2 \pi y)=sin(2\pi x) sin(2 \pi y)$$
-D'où $\alpha = \frac{-1}{8 \pi^2}$ puis $\Psi_{\alpha}(x,y)=\frac{-1}{8 \pi^2} sin(2\pi x) sin(2 \pi y)$, on peut finalement coder la fonction $\textit{solution\_field}$
-\\ \\
+D'où $\alpha = \frac{-1}{8 \pi^2}$ puis $\Psi_{\alpha}(x,y)=\frac{-1}{8 \pi^2} sin(2\pi x) sin(2 \pi y)$, on peut finalement coder la fonction $\textit{solution\_field}$.
+\vspace{2cm}
+\\
 \textbf{Question 10:} On obtient un test réussi avec une erreur de : $8.6736173799e^{-18}$, on a donc une précision de l'ordre de $10^{-18}$ sur nos calculs qui sont alors très précis.
 
 \begin{center}
@@ -203,7 +218,7 @@ $$\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{\ma
 
 $$\Delta S_{nm}(\mathbf{u}_y)(x,y)=\frac{\partial S_{nm}(\omega)}{\partial x}(x,y)$$
 $$\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{\mathbf{u}_y}_{pq}\mathbf{k_x}^2e^{\mathbf{k_y}y}e^{\mathbf{k_x}x}  +\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{\mathbf{u}_y}_{pq}\mathbf{k_y}^2e^{\mathbf{k_y}y}e^{\mathbf{k_x}x} =\overset{n}{\underset{p=-n }{\sum}}\overset{m}{\underset{q=-m }{\sum}}\hat{\omega}_{pq}\mathbf{k_x}e^{\mathbf{k_y}y}e^{\mathbf{k_x}x} $$
-\\ \\
+\\
 Finalement on a les relations suivantes:
 
 $$\hat{\mathbf{u}_x}_{pq}=\frac{-\hat{\omega}_{pq}}{\mathbf{k_x}^2+\mathbf{k_y}^2} $$
@@ -211,13 +226,14 @@ $$\hat{\mathbf{u}_x}_{pq}=\frac{\hat{\omega}_{pq}}{\mathbf{k_x}^2+\mathbf{k_y}^2
 
 On code ainsi, dans la fonction $\textit{poisson\_curl\_2d}$ en calculant les $\hat{\mathbf{u}_x}_{pq}$ et $\hat{\mathbf{u}_x}_{pq}$ puis en passant à la transformée inverse de Fourier on trouve $\mathbf{u}_x$ et $\mathbf{u}_y$. Pour le test donné, on obtient les résultats suivants:
 
-
+\vspace{1cm}
+\\
 \begin{center}
 \includegraphics[scale=0.3]{poisson_curlx.png}
 \captionof{figure}{Résultats du Test pour $\mathbf{u}_x$}
 \label{graphe 4:}
 \end{center}
-
+\vspace{2cm}
 \begin{center}
 \includegraphics[scale=0.3]{poisson_curly.png}
 \captionof{figure}{Résultats du Test pour $\mathbf{u}_y$}
@@ -225,7 +241,7 @@ On code ainsi, dans la fonction $\textit{poisson\_curl\_2d}$ en calculant les $\
 \end{center}
 
 On constate que les erreurs commises sont de l'ordre que celles commises précédemment lors de la question 10, ce qui semble normal puisque l'on utilise la même méthode pour la résolution.
-
+\newpage
 \section{Simulation numérique}
 
 \textbf{Question 12:} On a $\omega^0(x,y) = \frac{\partial \mathbf{u}_y^0}{\partial x} - \frac{\partial \mathbf{u}_x^0}{\partial y}$. De plus, $\frac{\partial \mathbf{u}_y^0}{\partial x}=2 \pi \delta cos(2\pi x)$ et   
@@ -236,19 +252,45 @@ On constate que les erreurs commises sont de l'ordre que celles commises précé
         \frac{-\rho}{ch^2(\rho(0.75-y))}  & \text{si $\rho > 0.5$}
      \end{cases}
 \end{equation*}
+\\
 
-
-
-
-
-
-
-
-
-
-
-
-
+\textbf{Question 13:}
+\\
+\begin{minipage}{.5\textwidth}
+\includegraphics[width=0.9\linewidth, height=0.3\textheight]{isocontours_1_20.png}
+\captionof{figure}{Isocontours à $t=1.2$}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\includegraphics[width=0.9\linewidth, height=0.3\textheight]{isocontours0_800000.png}
+\captionof{figure}{Isocontours à $t=0.8$}
+\end{minipage}
+\vspace{0.8cm}
+\\
+Pour $t=0.12$ les lignes de niveau sont plus resserrées, ce qui signifie que le champ scalaire de la vorticité varie rapidement lorsqu'on se déplace orthogonalement aux isocontours. Pour $t=0.8$, on a des isocontours plus espacés, la vorticité varie moins rapidement. Physiquement, on assiste à la "création" du tourbillon.
+\\
+\begin{center}
+\includegraphics[scale=0.13]{ite_0240.png}
+\captionof{figure}{$\omega$, $u_{x}(x,y)$, $u_{y}(x,y)$ pour $\nu=10^{-4}$ et $\rho=30$}
+\end{center}
+On a 240 itérations pour cette simulation.
+\newpage
+\textbf{Question 14:}
+\\
+\begin{minipage}{.5\textwidth}
+\includegraphics[width=0.9\linewidth, height=0.3\textheight]{14_isocontours_12.png}
+\captionof{figure}{Isocontours à $t=1.2$}
+\end{minipage}
+\begin{minipage}{.5\textwidth}
+\includegraphics[width=0.9\linewidth, height=0.3\textheight]{14_isocontours_08.png}
+\captionof{figure}{Isocontours à $t=0.8$}
+\end{minipage}
+\vspace{0.8cm}
+\\
+Pour ces paramètres, on a un tourbillon plus important que celui de la question précédente. On a du itérer 294 fois, ce qui rend cette configuration plus difficile à simuler que la première.
+\begin{center}
+\includegraphics[scale=0.13]{14_ite_0294.png}
+\captionof{figure}{$\omega$, $u_{x}(x,y)$, $u_{y}(x,y)$ pour $\nu=5\cdot10^{-5}$ et $\rho=100$}
+\end{center}
 
 
 
