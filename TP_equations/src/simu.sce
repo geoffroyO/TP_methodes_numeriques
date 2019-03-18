@@ -19,9 +19,9 @@ delta = 0.05
 // Initialize vorticity
 function [W] = init_vorticity(y,x)
     if y <= 0.5 then
-        W = 2*%pi*delta*cos(2*%pi*x) + rho/(cosh(rho(y-0.25))**2);
+        W = 2*%pi*delta*cos(2*%pi*x) + rho/(cosh(rho*(y-0.25))**2);
     else
-        W = 2*%pi*delta*cos(2*%pi*x) - rho/(cosh(rho(0.75-y))**2);
+        W = 2*%pi*delta*cos(2*%pi*x) - rho/(cosh(rho*(0.75-y))**2);
     end
 endfunction
 
@@ -68,9 +68,7 @@ function plot_isocontours(W, figname)
     
     fig = scf(1)
     clf()
-
-    // TODO: display the isocontours
-
+    contour2d(X,Y,W',-36:6:36)
     figname = sprintf("isocontours_%f.png", t)
     xs2png(fig, figname)
 endfunction
@@ -92,9 +90,9 @@ t = 0.0
 ite = 0
 W = feval(Y, X, init_vorticity)
 while t<T
-    // TODO: compute velocity from vorticity
-
-    // TODO: compute new timestep from stability criteria
+    [Ux,Uy]=poisson_curl_2d(W, Nx, Ny, Lx, Ly);
+    dt=min(calcul_dt(Ux,dx),calcul_dt(Uy,dy));
+    
     if (t<0.80) & (t+dt>0.80) then
         dt = 0.80-t
     elseif (t<1.20) & (t+dt>1.20) then
@@ -107,12 +105,12 @@ while t<T
     plot_fields(W,Ux,Uy,ite)
     plot_isocontours(W,t)
     
-    // TODO: advection-diffusion on vorticity
- 
-    // TODO: update t and ite
+    W = solveur_2D(W, Ux, Uy, Nx, Ny, nu, dt, dx, dy);
+    t = t+dt;
+    ite = ite + 1;
 end
 plot_fields(W,Ux,Uy,ite)
 plot_isocontours(W,t)
 
 printf("\nDone in %i iterations!\n", ite)
-exit(0)
+// exit(0)

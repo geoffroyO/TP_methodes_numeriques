@@ -29,10 +29,10 @@ endfunction
 function vort_s=solveur_2D(vort_p, ux, uy, Nx, Ny, kappa, dt, dx, dy) // Solveur 2D avec méthode de splitting
   vort_s = vort_p;
   for k=1:Nx
-    vort_s(k,:)=solveur_1D(phi(k,:), ux(k,:), Nx, kappa, dt, dx); 
+    vort_s(k,:)=solveur_1D(vort_p(k,:), ux(k,:), Nx, kappa, dt, dx); 
   end
   for k=1:Ny
-    vort_s(:,k) =solveur_1D(phi(:,k)', uy(:,k), Ny, kappa, dt, dy)
+    vort_s(:,k) =solveur_1D(vort_p(:,k)', uy(:,k), Ny, kappa, dt, dy)
   end
 endfunction
   
